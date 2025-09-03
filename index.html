@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bhonduuu Anshuuu 🎀</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="hearts-background"></div>
+
+  <div class="container">
+    <h1>Hi Bhonduuu Anshuuu 🎀</h1>
+    <p class="message typing">
+      huhh bola tha na me alg bnaunga ab tmhare liyee 🙂‍↔️ lekin me boluu kyaa tmhe toh sb pta hi h ki tum meri favourite ho kitni important ho or blah blah blah tohh tum game khelo tmhare liye game rkhta hu meee 🤭... orrr thankyou for existing in my life anddd jayda busy mat rha kro😡🎀
+    </p>
+
+    <button onclick="location.href='games.html'">Play the Games 🎮💖</button>
+    <button id="musicBtn">Play Music 🎵</button>
+  </div>
+
+  <!-- Hidden surprise link -->
+  <footer>
+    <span onclick="location.href='surprise.html'" class="secret-heart">💖</span>
+  </footer>
+
+  <audio id="bgMusic" src="music.mp3" loop></audio>
+  <script>
+    document.getElementById("musicBtn").addEventListener("click", function(){
+      document.getElementById("bgMusic").play();
+      this.innerText = "Music Playing 🎶";
+    });
+  </script>
+</body>
+</html>
