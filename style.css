@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  font-family: 'Comic Neue', cursive;
+  background: linear-gradient(135deg, #ffd6eb, #ffe6f7);
+  color: #5a2a5a;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.2em;
+  color: #d63384;
+}
+
+.message {
+  font-size: 1.1em;
+  margin: 20px 0;
+}
+
+button {
+  background: #ff85c1;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: #ff5fa2;
+}
+
+footer {
+  margin-top: 50px;
+}
+
+.secret-heart {
+  font-size: 2em;
+  cursor: pointer;
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Game styling */
+#catchGame, #bubbleGame, #memoryGame {
+  margin: 20px auto;
+  border: 2px solid #ff85c1;
+  border-radius: 10px;
+  width: 90%;
+  height: 400px;
+  background: #fff0f6;
+  overflow: hidden;
+  position: relative;
+}
