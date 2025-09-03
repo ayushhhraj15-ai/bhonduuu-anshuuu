@@ -19,8 +19,18 @@ function startCatchGame() {
   let score = 0;
   let scoreDisplay = container.querySelector("#score");
 
+  // Mouse control (PC)
   document.addEventListener("mousemove", e => {
-    paddle.style.left = e.clientX - 50 + "px";
+    let gameArea = container.querySelector("#catchGame").getBoundingClientRect();
+    let x = e.clientX - gameArea.left - 50;
+    paddle.style.left = Math.max(0, Math.min(x, gameArea.width - 100)) + "px";
+  });
+
+  // Touch control (Mobile)
+  document.addEventListener("touchmove", e => {
+    let gameArea = container.querySelector("#catchGame").getBoundingClientRect();
+    let x = e.touches[0].clientX - gameArea.left - 50;
+    paddle.style.left = Math.max(0, Math.min(x, gameArea.width - 100)) + "px";
   });
 
   function dropHeart() {
@@ -38,8 +48,8 @@ function startCatchGame() {
       let paddleRect = paddle.getBoundingClientRect();
 
       if (heartRect.bottom >= paddleRect.top &&
-          heartRect.left >= paddleRect.left &&
-          heartRect.right <= paddleRect.right) {
+          heartRect.left < paddleRect.right &&
+          heartRect.right > paddleRect.left) {
         score++;
         scoreDisplay.innerText = "Score: " + score;
         heart.remove();
@@ -66,6 +76,7 @@ function startBubbleGame() {
     bubble.className = "bubble";
     bubble.innerText = "🎀";
     bubble.style.left = Math.random() * 300 + "px";
+    bubble.style.bottom = "0px";
     game.appendChild(bubble);
 
     bubble.addEventListener("click", () => {
@@ -74,9 +85,9 @@ function startBubbleGame() {
     });
 
     let rise = setInterval(() => {
-      let top = parseInt(bubble.style.top || 350);
-      bubble.style.top = top - 2 + "px";
-      if (top < 0) { bubble.remove(); clearInterval(rise); }
+      let bottom = parseInt(bubble.style.bottom || 0);
+      bubble.style.bottom = bottom + 2 + "px";
+      if (bottom > 350) { bubble.remove(); clearInterval(rise); }
     }, 20);
   }, 2000);
 }
@@ -119,4 +130,4 @@ function startMemoryGame() {
       }, 800);
     }
   });
-}
+}          
